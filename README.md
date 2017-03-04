@@ -11,5 +11,17 @@ The following code demonstrates the difference between assignment compatibility,
 <ul>
 <li>Covariance
 Enables you to use a more derived type than originally specified.
-You can assign an instance of IEnumerable`<Derived>` (IEnumerable(Of Derived) in Visual Basic) to a variable of type IEnumerable<Base>.
+You can assign an instance of IEnumerable`<Derived>` (IEnumerable(Of Derived) in Visual Basic) to a variable of type IEnumerable`<Base>`.
+<li>Contravariance
+Enables you to use a more generic (less derived) type than originally specified.
+You can assign an instance of IEnumerable`<Base> (IEnumerable(Of Base) in Visual Basic) to a variable of type IEnumerable`<Derived>`.
+<li>Invariance
+Means that you can use only the type originally specified; so an invariant generic type parameter is neither covariant nor contravariant.
+You cannot assign an instance of IEnumerable `<Base>`(IEnumerable(Of Base) in Visual Basic) to a variable of type IEnumerable`<Derived>` or vice versa.
+</ul>
 
+####Covariant type parameters enable you to make assignments that look much like ordinary Polymorphism, as shown in the following code.
+
+```C#
+
+```
