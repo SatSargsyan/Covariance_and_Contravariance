@@ -25,13 +25,13 @@ Action<object> actObject = SetObject;
 Action<string> actString = actObject;  
 ```
 
-####Covariance for arrays enables implicit conversion of an array of a more derived type to an array of a less derived type. But this operation is not type safe, as shown in the following code example.
+  Covariance for arrays enables implicit conversion of an array of a more derived type to an array of a less derived type. But this operation is not type safe, as shown in the following code example.
 ```C#
 object[] array = new String[10];  
 // The following statement produces a run-time exception.  
 // array[0] = 10;  
 ```
-####Covariance and contravariance support for method groups allows for matching method signatures with delegate types. This enables you to assign to delegates not only methods that have matching signatures, but also methods that return more derived types (covariance) or that accept parameters that have less derived types (contravariance) than that specified by the delegate type. For more information, see <a href=https://msdn.microsoft.com/en-us/library/mt654059.aspx>Variance in Delegates</a> and <a href=https://msdn.microsoft.com/en-us/library/mt654057.aspx>Using Variance in Delegates </a>.
+  Covariance and contravariance support for method groups allows for matching method signatures with delegate types. This enables you to assign to delegates not only methods that have matching signatures, but also methods that return more derived types (covariance) or that accept parameters that have less derived types (contravariance) than that specified by the delegate type. For more information, see <a href=https://msdn.microsoft.com/en-us/library/mt654059.aspx>Variance in Delegates</a> and <a href=https://msdn.microsoft.com/en-us/library/mt654057.aspx>Using Variance in Delegates </a>.
 
 ####The following code example shows covariance and contravariance support for method groups.
 
@@ -53,7 +53,13 @@ static void Test()
     Action<string> del2 = SetObject;  
 }  
 ```
-
+In .NET Framework 4 or newer C# supports covariance and contravariance in generic interfaces and delegates and allows for implicit conversion of generic type parameters. For more information, see Variance in Generic Interfaces (C#) and Variance in Delegates (C#).
+The following code example shows implicit reference conversion for generic interfaces.
+```C#
+IEnumerable<String> strings = new List<String>();  
+IEnumerable<Object> objects = strings;  
+```
+A generic interface or delegate is called variant if its generic parameters are declared covariant or contravariant. C# enables you to create your own variant interfaces and delegates. For more information, see Creating Variant Generic Interfaces (C#) and Variance in Delegates (C#).
 
 ###Covariance and Contravariance in Generics
 
