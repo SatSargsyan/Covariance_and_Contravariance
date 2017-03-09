@@ -25,6 +25,35 @@ Action<object> actObject = SetObject;
 Action<string> actString = actObject;  
 ```
 
+####Covariance for arrays enables implicit conversion of an array of a more derived type to an array of a less derived type. But this operation is not type safe, as shown in the following code example.
+```C#
+object[] array = new String[10];  
+// The following statement produces a run-time exception.  
+// array[0] = 10;  
+```
+####Covariance and contravariance support for method groups allows for matching method signatures with delegate types. This enables you to assign to delegates not only methods that have matching signatures, but also methods that return more derived types (covariance) or that accept parameters that have less derived types (contravariance) than that specified by the delegate type. For more information, see <a href=https://msdn.microsoft.com/en-us/library/mt654059.aspx>Variance in Delegates</a> and <a href=https://msdn.microsoft.com/en-us/library/mt654057.aspx>Using Variance in Delegates </a>.
+
+####The following code example shows covariance and contravariance support for method groups.
+
+```C#
+static object GetObject() { return null; }  
+static void SetObject(object obj) { }  
+  
+static string GetString() { return ""; }  
+static void SetString(string str) { }  
+  
+static void Test()  
+{  
+    // Covariance. A delegate specifies a return type as object,  
+    // but you can assign a method that returns a string.  
+    Func<object> del = GetString;  
+  
+    // Contravariance. A delegate specifies a parameter type as string,  
+    // but you can assign a method that takes an object.  
+    Action<string> del2 = SetObject;  
+}  
+```
+
 
 ###Covariance and Contravariance in Generics
 
