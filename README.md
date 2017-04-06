@@ -33,7 +33,7 @@ object[] array = new String[10];
 ```
   Covariance and contravariance support for method groups allows for matching method signatures with delegate types. This enables you to assign to delegates not only methods that have matching signatures, but also methods that return more derived types (covariance) or that accept parameters that have less derived types (contravariance) than that specified by the delegate type. For more information, see <a href=https://msdn.microsoft.com/en-us/library/mt654059.aspx>Variance in Delegates</a> and <a href=https://msdn.microsoft.com/en-us/library/mt654057.aspx>Using Variance in Delegates </a>.
 
-####The following code example shows covariance and contravariance support for method groups.
+#### The following code example shows covariance and contravariance support for method groups.
 
 ```C#
 static object GetObject() { return null; }  
@@ -61,7 +61,7 @@ IEnumerable<Object> objects = strings;
 ```
 A generic interface or delegate is called variant if its generic parameters are declared covariant or contravariant. C# enables you to create your own variant interfaces and delegates. For more information, see Creating Variant Generic Interfaces (C#) and Variance in Delegates (C#).
 
-###Covariance and Contravariance in Generics
+### Covariance and Contravariance in Generics
 
 <a href=https://msdn.microsoft.com/en-us/library/dd799517(v=vs.110).aspx>Covariance and contravariance </a>are terms that refer to the ability to use a less derived (less specific) or more derived type (more specific) than originally specified. Generic type parameters support covariance and contravariance to provide greater flexibility in assigning and using generic types. When you are referring to a type system, covariance, contravariance, and invariance have the following definitions. The examples assume a base class named Base and a derived class named Derived.
 <ul>
@@ -76,7 +76,7 @@ Means that you can use only the type originally specified; so an invariant gener
 You cannot assign an instance of IEnumerable `<Base>`(IEnumerable(Of Base) in Visual Basic) to a variable of type IEnumerable`<Derived>` or vice versa.
 </ul>
 
-####Covariant type parameters enable you to make assignments that look much like ordinary Polymorphism, as shown in the following code.
+### Covariant type parameters enable you to make assignments that look much like ordinary Polymorphism, as shown in the following code.
 
 ```C#
 
